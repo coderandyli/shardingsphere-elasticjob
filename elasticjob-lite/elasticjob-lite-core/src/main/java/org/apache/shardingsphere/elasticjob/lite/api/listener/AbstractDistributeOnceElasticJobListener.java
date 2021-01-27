@@ -29,6 +29,8 @@ import java.util.Set;
 
 /**
  * Distributed once elasticjob listener.
+ * 分布式作业监听器，在分布式作业中只执行一次的监听器.基于ElasticJobListener.
+ *
  */
 public abstract class AbstractDistributeOnceElasticJobListener implements ElasticJobListener {
     
@@ -114,6 +116,7 @@ public abstract class AbstractDistributeOnceElasticJobListener implements Elasti
     
     /**
      * Do before job executed at last sharding job started.
+     * 分布式环境中最后一个作业执行前的执行的方法.
      *
      * @param shardingContexts sharding contexts
      */
@@ -121,6 +124,7 @@ public abstract class AbstractDistributeOnceElasticJobListener implements Elasti
     
     /**
      * Do after job executed at last sharding job completed.
+     * 分布式环境中最后一个作业执行后的执行的方法.
      *
      * @param shardingContexts sharding contexts
      */
@@ -128,6 +132,7 @@ public abstract class AbstractDistributeOnceElasticJobListener implements Elasti
     
     /**
      * Notify waiting task start.
+     * 通知任务开始
      */
     public void notifyWaitingTaskStart() {
         synchronized (startedWait) {
@@ -137,6 +142,7 @@ public abstract class AbstractDistributeOnceElasticJobListener implements Elasti
     
     /**
      * Notify waiting task complete.
+     * 通知任务结束.
      */
     public void notifyWaitingTaskComplete() {
         synchronized (completedWait) {

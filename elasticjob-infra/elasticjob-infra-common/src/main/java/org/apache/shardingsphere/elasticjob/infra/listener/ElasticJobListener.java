@@ -21,11 +21,15 @@ import org.apache.shardingsphere.elasticjob.infra.spi.TypedSPI;
 
 /**
  * ElasticJob listener.
+ * 弹性化分布式作业监听器接口（本地监听器）.
+ *
+ * 使用：重写本地监听器，可以implements ElasticJobListener
  */
 public interface ElasticJobListener extends TypedSPI {
     
     /**
      * Called before job executed.
+     * 作业执行前执行的方法
      * 
      * @param shardingContexts sharding contexts
      */
@@ -33,6 +37,7 @@ public interface ElasticJobListener extends TypedSPI {
     
     /**
      * Called after job executed.
+     * 作业执行后执行的方法
      *
      * @param shardingContexts sharding contexts
      */
